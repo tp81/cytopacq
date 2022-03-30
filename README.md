@@ -22,14 +22,14 @@ Mapping the `LOCAL_FOLDER` is optional but recommended. It avoids cluttering the
 You can also run it using `singularity` if you are in an HPC environment.
 
 ```
-singularity run docker://tp81/cytopacq
+singularity run docker://ghcr.io/tp81/cytopacq
 ```
 
 ## Using the software
 
 To use one of the defaults configurations, assuming you have an empty directory at "C:\tmp" (you can change it to whatever you please), you can launch cytopack with : 
 
-```bash
+```
 docker run -it -v "C:\tmp:/data" ghcr.io/tp81/cytopacq:master -c /usr/local/config/microsphere.ini -f /data/im.ics -l /data/lb.ics -e /data/error.log
 ```
 
