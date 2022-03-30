@@ -33,6 +33,6 @@ To use one of the defaults configurations, assuming you have an empty directory 
 docker run -it -v "C:\tmp:/data" ghcr.io/tp81/cytopacq:master -c /usr/local/config/microsphere.ini -f /data/im.ics -l /data/lb.ics -e /data/error.log
 ```
 
-It'll take a few minutes to process.
+It'll take a few minutes to process. You should see ywo new images in `C:\tmp`, `im.ics` and `lb.ics`. These will be the image and label component of the simulated output. 
 
 
