@@ -1,5 +1,5 @@
 # Cytopacq Docker version
-This is a version of `cytopacq` developed by the CBIA in Brno, Czech Republic, that has been containerized to be run with `docker` or `singularity`.
+This is a version of [`cytopacq`](https://cbia.fi.muni.cz/research/simulations/cytopacq.html) developed by the CBIA in Brno, Czech Republic, that has been containerized to be run with `docker` or `singularity`.
 
 It contains all the defaults modules and can be run in the following way:
 
@@ -56,4 +56,6 @@ singularity  exec ./cytopacq_master.sif ls /usr/local/config
 
 You can also create your own by modifying the ones in that directory.
 
-
+## Authors
+David Svoboda and the CBIA created Cytopacq.
+Thomas Pengo dockerized it.
