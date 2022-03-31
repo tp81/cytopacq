@@ -30,9 +30,30 @@ singularity run docker://ghcr.io/tp81/cytopacq
 To use one of the defaults configurations, assuming you have an empty directory at "C:\tmp" (you can change it to whatever you please), you can launch cytopack with : 
 
 ```
-docker run -it -v "C:\tmp:/data" ghcr.io/tp81/cytopacq:master -c /usr/local/config/microsphere.ini -f /data/im.ics -l /data/lb.ics -e /data/error.log
+docker run -it -v "C:\tmp:/data" ghcr.io/tp81/cytopacq:master -c /usr/local/config/hl60-release.ini -f /data/im.ics -l /data/lb.ics -e /data/error.log
 ```
 
-It'll take a few minutes to process. You should see ywo new images in `C:\tmp`, `im.ics` and `lb.ics`. These will be the image and label component of the simulated output. 
+or with `singularity`:
+
+```
+singularity pull docker://ghcr.io/tp81/cytopacq:master 
+singularity run --bind ".:/data" ./cytopacq_master.sif -c /usr/local/config/hl60-release.ini -f /data/im.ics -l /data/lb.ics -e /data/error.log
+```
+
+It'll take a few minutes to process. You should see ywo new images in `C:\tmp`, `im.ics` and `lb.ics`. These will be the image and label component of the simulated output.
+
+The list of available INI files is here:
+
+```
+docker run -it --rm --entrypoint /bin/bash ghcr.io/tp81/cytopacq:master -c "ls /usr/local/config"
+```
+
+or
+
+```
+singularity  exec ./cytopacq_master.sif ls /usr/local/config
+```
+
+You can also create your own by modifying the ones in that directory.
 
 
