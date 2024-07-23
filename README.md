@@ -1,5 +1,5 @@
 # Cytopacq Docker version
-This is a version of [`cytopacq`](https://cbia.fi.muni.cz/research/simulations/cytopacq.html) developed by the CBIA in Brno, Czech Republic, that has been containerized to be run with `docker` or `singularity`.
+This is a version of [`cytopacq`](https://cbia.fi.muni.cz/research/simulations/cytopacq.html) developed by the CBIA in Brno, Czech Republic, that has been containerized to be run with `docker` or `apptainer`.
 
 It contains all the defaults modules and can be run in the following way:
 
@@ -19,10 +19,10 @@ docker run cytopacq -v LOCAL_FOLDER:/data
 
 Mapping the `LOCAL_FOLDER` is optional but recommended. It avoids cluttering the container and with the `--rm` option, all traces created by `cytopacq` will be erased upon exit.
 
-You can also run it using `singularity` if you are in an HPC environment.
+You can also run it using `apptainer` if you are in an HPC environment.
 
 ```
-singularity run docker://ghcr.io/tp81/cytopacq
+apptainer run docker://ghcr.io/tp81/cytopacq
 ```
 
 ## Using the software
@@ -33,11 +33,11 @@ To use one of the defaults configurations, assuming you have an empty directory 
 docker run -it -v "C:\tmp:/data" ghcr.io/tp81/cytopacq:master -c /usr/local/config/hl60-release.ini -f /data/im.ics -l /data/lb.ics -e /data/error.log
 ```
 
-or with `singularity`:
+or with `apptainer`:
 
 ```
-singularity pull docker://ghcr.io/tp81/cytopacq:master 
-singularity run --bind ".:/data" ./cytopacq_master.sif -c /usr/local/config/hl60-release.ini -f /data/im.ics -l /data/lb.ics -e /data/error.log
+apptainer pull docker://ghcr.io/tp81/cytopacq:master 
+apptainer run --bind ".:/data" ./cytopacq_master.sif -c /usr/local/config/hl60-release.ini -f /data/im.ics -l /data/lb.ics -e /data/error.log
 ```
 
 It'll take a few minutes to process. You should see ywo new images in `C:\tmp`, `im.ics` and `lb.ics`. These will be the image and label component of the simulated output.
@@ -51,7 +51,7 @@ docker run -it --rm --entrypoint /bin/bash ghcr.io/tp81/cytopacq:master -c "ls /
 or
 
 ```
-singularity  exec ./cytopacq_master.sif ls /usr/local/config
+apptainer  exec ./cytopacq_master.sif ls /usr/local/config
 ```
 
 You can also create your own by modifying the ones in that directory.
