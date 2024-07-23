@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 
+
 # From https://dev.to/setevoy/docker-configure-tzdata-and-timezone-during-build-20bk
 # Feel free to change the timezone... Use tzselect command to find out what to put here.
 ENV TZ=America/Chicago
@@ -24,6 +25,8 @@ RUN tar xzvf sim-app-2015-03-04-r82.tgz
 RUN apt-get install -y libqhull-dev libgsl-dev flex bison 
 RUN cd /sim-app && cmake . -D INC_QHULL=/usr/include/qhull
 RUN cd /sim-app && LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu make install
+
+COPY zmenseny.ics /usr/local/psf/zmenseny.ics
 
 ENV LD_LIBRARY_PATH=/usr/local/lib
 
