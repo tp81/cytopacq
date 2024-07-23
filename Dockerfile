@@ -26,7 +26,7 @@ RUN apt-get install -y libqhull-dev libgsl-dev flex bison
 RUN cd /sim-app && cmake . -D INC_QHULL=/usr/include/qhull
 RUN cd /sim-app && LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu make install
 
-COPY zmenseny.ics /usr/local/psf/zmenseny.ics
+COPY psf/zmenseny.ics /usr/local/psf/zmenseny.ics
 
 ENV LD_LIBRARY_PATH=/usr/local/lib
 
