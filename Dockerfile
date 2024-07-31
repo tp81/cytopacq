@@ -27,6 +27,7 @@ RUN cd /sim-app && cmake . -D INC_QHULL=/usr/include/qhull
 RUN cd /sim-app && LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu make install
 
 COPY psf/zmenseny.ics /usr/local/psf/zmenseny.ics
+COPY psf/PSF_widefield_0.75NA_1.0ri_300nm_1400nm.tif /usr/local/psf/PSF_widefield_0.75NA_1.0ri_300nm_1400nm.tif
 
 ENV LD_LIBRARY_PATH=/usr/local/lib
 
