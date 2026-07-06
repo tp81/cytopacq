@@ -57,5 +57,5 @@ apptainer  exec ./cytopacq_master.sif ls /usr/local/config
 You can also create your own by modifying the ones in that directory.
 
 ## Authors
-David Svoboda and the CBIA created Cytopacq.
+David Svoboda and the [CBIA](https://cbia.fi.muni.cz/) created Cytopacq.
 Thomas Pengo dockerized it.
